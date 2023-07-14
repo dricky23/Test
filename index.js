@@ -51,8 +51,8 @@ createUserWithEmailAndPassword(auth, email, password,)
  });
 
  login.addEventListener("click",(e)=> {
-  let email = document.getElementById('email').value;
-  let password = document.getElementById('password').value;
+  let email = document.getElementById('email2').value;
+  let password = document.getElementById('password2').value;
 
     signInWithEmailAndPassword(auth, email, password)
       .then((userCredential) => {
