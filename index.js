@@ -79,6 +79,9 @@ createUserWithEmailAndPassword(auth, email, password,)
  const user = auth.currentUser;
  onAuthStateChanged(auth, (user) => {
   if (user) {
+    var addComment = document.getElementById("profile-toolbar")
+    addComment.innerHTML = `<input id="new-c" placeholder="new comment"><button id="post" onclick="newComment">Add new!</button>`
+
     // User is signed in, see docs for a list of available properties
     // https://firebase.google.com/docs/reference/js/auth.user
     const uid = user.uid;
@@ -101,3 +104,7 @@ logout.addEventListener("click", (e)=> {
         alert(errorMessage);
 });
 });
+
+function addComment () {
+
+}
