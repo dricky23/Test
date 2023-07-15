@@ -1,7 +1,7 @@
 // javascript
 
     import { initializeApp } from "https://www.gstatic.com/firebasejs/10.0.0/firebase-app.js";
-    import { getDatabase, set, ref, update } from "https://www.gstatic.com/firebasejs/10.0.0/firebase-database.js";
+    import { getDatabase, set, ref, update, push } from "https://www.gstatic.com/firebasejs/10.0.0/firebase-database.js";
     import { getAuth, createUserWithEmailAndPassword, signInWithEmailAndPassword, onAuthStateChanged, signOut } from "https://www.gstatic.com/firebasejs/10.0.0/firebase-auth.js";
 
   const firebaseConfig = {
@@ -31,7 +31,8 @@ createUserWithEmailAndPassword(auth, email, password,)
     
     set(ref(database, "users/" + user.uid),{
       username: username,
-      email: email
+      email: email,
+      comments: []
     })
     alert("user created!");
     // ...
@@ -75,7 +76,7 @@ createUserWithEmailAndPassword(auth, email, password,)
  onAuthStateChanged(auth, (user) => {
   if (user) {
     var addComment = document.getElementById("profile-toolbar")
-    addComment.innerHTML = `<input id="new-c" placeholder="new comment"><button id="post" onclick="newComment">Add new!</button>`;
+    addComment.innerHTML = `Welcome back ${user} <input id="new-c" placeholder="new comment"><button id="post" onclick="newComment">Add new!</button>`;
 
     // User is signed in, see docs for a list of available properties
     // https://firebase.google.com/docs/reference/js/auth.user
@@ -99,7 +100,3 @@ logout.addEventListener("click", (e)=> {
         alert(errorMessage);
 });
 });
-
-function addComment () {
-
-}
