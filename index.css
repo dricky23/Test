@@ -1,7 +1,7 @@
 html, body {
     margin: 0;
     padding: 0;
-    text-align: left;
+    text-align: center;
     background: slateblue;
     color: #432000;
     user-select: none;
@@ -13,6 +13,7 @@ html, body {
     flex-direction: column;
     max-width: 320px;
     margin: 30px auto;
+    text-align: left;
 }
 
 input {

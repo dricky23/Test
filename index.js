@@ -1,14 +1,9 @@
 // javascript
 
-  // Import the functions you need from the SDKs you need
     import { initializeApp } from "https://www.gstatic.com/firebasejs/10.0.0/firebase-app.js";
     import { getDatabase, set, ref, update } from "https://www.gstatic.com/firebasejs/10.0.0/firebase-database.js";
     import { getAuth, createUserWithEmailAndPassword, signInWithEmailAndPassword, onAuthStateChanged, signOut } from "https://www.gstatic.com/firebasejs/10.0.0/firebase-auth.js";
 
-  // TODO: Add SDKs for Firebase products that you want to use
-  // https://firebase.google.com/docs/web/setup#available-libraries
-
-  // Your web app's Firebase configuration
   const firebaseConfig = {
     apiKey: "AIzaSyCVCKJshURcHXbFiPb1TyhspwlAwoh4tks",
     authDomain: "realtime-database-3b1f1.firebaseapp.com",
@@ -107,8 +102,4 @@ logout.addEventListener("click", (e)=> {
 
 function addComment () {
 
-}
-
-function signIn () {
-  
 }
