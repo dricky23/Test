@@ -78,18 +78,18 @@ createUserWithEmailAndPassword(auth, email, password,)
  onAuthStateChanged(auth, (user) => {
   if (user) {
     const uid = user.uid;
-    var addComment = document.getElementById("sign-up-d");
-    var lastComment = document.getElementById("sign-in-d");
+    var topB = document.getElementById("sign-up-d");
+    var midB = document.getElementById("sign-in-d");
 
     // User is signed in, see docs for a list of available properties
     // https://firebase.google.com/docs/reference/js/auth.user
-    addComment.innerHTML = `<div class="container">
+    topB.innerHTML = `<div class="container">
     <input type="text" id="input-field" placeholder="Pizza">
     <button id="add-button">Add to cart</button>
     <ul id="shopping-list">
     </ul>
     </div>`;
-    lastComment.innerHTML = "";
+    midB.innerHTML = "";
 
     const inputFieldEl = document.getElementById("input-field")
     const addButtonEl = document.getElementById("add-button")

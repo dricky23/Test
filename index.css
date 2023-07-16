@@ -16,7 +16,6 @@ html, body {
     border-radius: 15px;
     padding: 0px 20px;
 }
-
 #sign-up-d {
     margin-bottom: 0px;
 }
@@ -26,21 +25,16 @@ html, body {
 #sign-out-d {
     margin-top: 0px;
 }
-
 h1 {
     margin: 15px;
     text-align: center;
 }
-
 .log-btn {
     background-color: #a100f2 ;
     color: #dad4f9;
     margin-top: 6.5px;
     margin-bottom: 6.5px;
-    
-    
 }
-
 input {
     color: #0e0a27;
     background-color: #DCE1EB;
@@ -52,12 +46,10 @@ input {
     text-align: center;
     font-family: 'Rubik', sans-serif;
     margin: 1px 0;
-    
 }
-
 button {
     color: #FDFDFD;
-    background-color: #AC485A;
+    background-color: #00ab97;
     border: 0;
     padding: 15px;
     border-radius: 8px;
@@ -65,9 +57,8 @@ button {
     text-align: center;
     font-family: 'Rubik', sans-serif;
 }
-
 button:hover {
-    background-color: #432000;
+    background-color: #00b938;
     cursor: pointer;
 }
 ul {
@@ -77,9 +68,9 @@ ul {
     flex-wrap: wrap;
     gap: 10px;
 }
-
 ul li {
     font-size: 20px;
+    color: #0e0a27;
     background-color: #FFFDF8;
     padding: 15px;
     border-radius: 8px;
@@ -87,11 +78,14 @@ ul li {
     text-align: center;
     box-shadow: 0px 1px 4px rgba(0, 0, 0, 0.2)
 }
-
 ul li:hover {
     background-color: #F9879E;
     cursor: pointer;
 }
 #input-field {
     margin-bottom: 8px;
+}
+.log-btn:hover {
+    background-color: #f10030;
+    cursor: pointer;
 }
