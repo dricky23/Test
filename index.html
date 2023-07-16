@@ -1,7 +1,7 @@
 <!doctype html>
 <html>
     <head><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/8.0.1/normalize.css">
-        <title>We are the Champions</title>
+        <title>Super cool stuff!</title>
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <link rel="stylesheet" href="index.css">
         <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
@@ -11,7 +11,7 @@
     </head>
     <body>
         <div id="login-box">
-            <div class="left">
+            <div class="left" id="sign-up-d">
                 <h1>Sign up</h1>
                 <input type="text" id="username" name="username" placeholder="Username">
                 <input type="text" id="email" name="email" placeholder="E-mail">
@@ -19,17 +19,19 @@
                 
                 <input type="submit" id="signUp" name="signup_submit" value="Sign up">
             </div>
-            <div class="right">
+            <div class="right" id="sign-in-d">
               <h1>Login</h1>
               <input type="text" id="email2" name="email2" placeholder="E-mail">
               <input type="password" id="password2" name="password2" placeholder="Password">
-              
+
               <input type="submit" id="login" name="login" value="Sign in">
-              <input type="submit" id="logout" name="logout" value="Sign-out">                 
+            </div>
+            <div id="sign-out-d">
+                <input type="submit" id="logout" name="logout" value="Sign-out"> 
             </div>
             <div id="pro-box">
                 <p id="comments"></p>
-                <p id="profile-toolbar">Sign in to see it your messages</p>
+                <p id="profile-toolbar">Sign in to see it your special coupons!</p>
             </div>
 
         </div>

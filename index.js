@@ -17,9 +17,7 @@
   const auth = getAuth();
   const shoppingListInDB = ref(database, "shoppingList");
 
-const signUpD = document.getElementById("sign-up-d")
-const signinD = document.getElementById("sign-in-d")
-const signoutD = document.getElementById("sign-out-d")
+
 
 ///Sig-up///
   signUp.addEventListener("click", (e) => {
@@ -80,11 +78,8 @@ createUserWithEmailAndPassword(auth, email, password,)
  onAuthStateChanged(auth, (user) => {
   if (user) {
     const uid = user.uid;
-    var addComment = document.getElementById("profile-toolbar");
-    var lastComment = document.getElementById("comments");
-    signUpD.style.display = "none";
-    signinD.style.display = "none";
-    signoutD.style.display = "block";
+    var addComment = document.getElementById("sign-up-d");
+    var lastComment = document.getElementById("sign-in-d");
 
     // User is signed in, see docs for a list of available properties
     // https://firebase.google.com/docs/reference/js/auth.user
@@ -159,11 +154,10 @@ createUserWithEmailAndPassword(auth, email, password,)
 ///logout-button////
 logout.addEventListener("click", (e)=> {
   signOut(auth).then(() => {
-    signUpD.style.display = "block";
-    signinD.style.display = "block";
-    signoutD.style.display = "none";
+
   // Sign-out successful.
   alert("BYEEEEE");
+  window.location.reload();
 }).catch((error) => {
   // An error happened.
   const errorCode = error.code;
