@@ -1,18 +1,19 @@
 html, body {
     margin: 0;
     padding: 0;
-    background: #a100f2;
+    background: #B505CC;
     color: #dad4f9;
     user-select: none;
     text-shadow: 0 0 2.5px black;
+    border: 2px solid black;
 
 }
 .container {
     display: flex;
     flex-direction: column;
-    max-width: 320px;
+    max-width: 300px;
     margin: 10px auto;
-    background: #6a00f4;
+    background: #3105CE;
     border-radius: 15px;
     padding: 0px 20px;
 }
@@ -30,7 +31,7 @@ h1 {
     text-align: center;
 }
 .log-btn {
-    background-color: #a100f2 ;
+    background-color: #055FCC ;
     color: #dad4f9;
     margin-top: 6.5px;
     margin-bottom: 6.5px;
@@ -56,6 +57,7 @@ button {
     font-size: 20px;
     text-align: center;
     font-family: 'Rubik', sans-serif;
+    border: 2px solid black;
 }
 button:hover {
     background-color: #00b938;
@@ -76,7 +78,6 @@ ul li {
     border-radius: 8px;
     flex-grow: 1;
     text-align: center;
-    box-shadow: 0px 1px 4px rgba(0, 0, 0, 0.2)
 }
 ul li:hover {
     background-color: #F9879E;

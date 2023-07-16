@@ -83,13 +83,15 @@ createUserWithEmailAndPassword(auth, email, password,)
 
     // User is signed in, see docs for a list of available properties
     // https://firebase.google.com/docs/reference/js/auth.user
-    topB.innerHTML = `<div class="container">
+    midB.innerHTML = `<div class="container">
     <input type="text" id="input-field" placeholder="Pizza">
     <button id="add-button">Add to cart</button>
     <ul id="shopping-list">
     </ul>
     </div>`;
-    midB.innerHTML = "";
+    topB.innerHTML = `<div class="container" id="sign-out-d">
+    <input class="log-btn" type="submit" id="logout" name="logout" value="Sign-out"> 
+    </div>`;
 
     const inputFieldEl = document.getElementById("input-field")
     const addButtonEl = document.getElementById("add-button")
