@@ -84,7 +84,7 @@ createUserWithEmailAndPassword(auth, email, password,)
     // User is signed in, see docs for a list of available properties
     // https://firebase.google.com/docs/reference/js/auth.user
     midB.innerHTML = 
-    `<img src="header.jpg">
+    `<p id="imgh"></p>
     <input type="text" id="input-field" placeholder="Say something here!">
     <button id="add-button">Add Message</button>
     <ul id="shopping-list">
