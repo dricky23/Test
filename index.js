@@ -80,7 +80,8 @@ createUserWithEmailAndPassword(auth, email, password,)
     const uid = user.uid;
     var topB = document.getElementById("sign-up-d");
     var midB = document.getElementById("sign-in-d");
-    var free = document.getElementById("free")
+    var free = document.getElementById("free");
+    const freeDB = ref(database, "Coupon");
     // User is signed in, see docs for a list of available properties
     // https://firebase.google.com/docs/reference/js/auth.user
     midB.innerHTML = 
@@ -111,7 +112,7 @@ createUserWithEmailAndPassword(auth, email, password,)
     const addButtonEl = document.getElementById("add-button")
     const MsgEl = document.getElementById("shopping-list")
     const free = document.getElementById("free")
-    onValue(Coupon, function(snapshot) {
+    onValue(freeDB, function(snapshot) {
       if (snapshot.exists()) {
           let itemsArray = Object.entries(snapshot.val())
       
@@ -202,7 +203,3 @@ createUserWithEmailAndPassword(auth, email, password,)
     // ...
   }
 });
-
-///logout-button////
-
-
