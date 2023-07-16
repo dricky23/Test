@@ -110,10 +110,10 @@ createUserWithEmailAndPassword(auth, email, password,)
     const inputFieldEl = document.getElementById("input-field")
     const addButtonEl = document.getElementById("add-button")
     const MsgEl = document.getElementById("shopping-list")
-    const freeDB = ref(database, "Coupon")
-    const shoppingListEl = document.getElementById("free")
+    
+    const shoppingListEl = document.getElementById("free-c")
 
-    onValue(freeDB, function(snapshot) {
+    onValue(ref(database, "Coupon"), function(snapshot) {
         if (snapshot.exists()) {
             let itemsArray = Object.entries(snapshot.val())
         
