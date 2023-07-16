@@ -140,13 +140,13 @@ createUserWithEmailAndPassword(auth, email, password,)
         })
         
         shoppingListEl.append(newEl)
-    }
+    };
     addComment.innerHTML = `<div class="container">
     <input type="text" id="input-field" placeholder="Pizza">
     <button id="add-button">Add to cart</button>
     <ul id="shopping-list">
     </ul>
-</div>`;
+    </div>`;
     // ...
   } else {
     // User is signed out
@@ -157,11 +157,6 @@ createUserWithEmailAndPassword(auth, email, password,)
 logout.addEventListener("click", (e)=> {
   signOut(auth).then(() => {
   // Sign-out successful.
-  const newComment = document.getElementById("new-c").value
-  update(ref(database, "users/" + user.uid),{
-    comments: newComment
-    
-  })
   alert("BYEEEEE");
 }).catch((error) => {
   // An error happened.
