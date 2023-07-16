@@ -80,7 +80,6 @@ createUserWithEmailAndPassword(auth, email, password,)
     const uid = user.uid;
     var topB = document.getElementById("sign-up-d");
     var midB = document.getElementById("sign-in-d");
-    var free = document.getElementById("free");
     const freeDB = ref(database, "Coupon");
     // User is signed in, see docs for a list of available properties
     // https://firebase.google.com/docs/reference/js/auth.user
