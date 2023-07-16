@@ -93,9 +93,11 @@ ul li:hover {
 }
 #imgh {
     width: 280px;
+    height: 158px;
     margin: 10px auto;
     border-radius: 50px;
     box-shadow: 0px 1px 4px rgba(0, 0, 0, 0.2);
     border: 10px dotted #f2ffb8;
     background-image: url(header.jpg);
+    
 }
