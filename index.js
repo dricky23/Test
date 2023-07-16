@@ -15,8 +15,8 @@
   const app = initializeApp(firebaseConfig);
   const database = getDatabase(app);
   const auth = getAuth();
-  const MsgInDB = ref(database, "Msg");
-  const freeDB = ref(database, "Coupon");
+  let MsgInDB = ref(database, "Msg");
+ 
 
 
 ///Sig-up///
@@ -111,7 +111,7 @@ createUserWithEmailAndPassword(auth, email, password,)
     const addButtonEl = document.getElementById("add-button")
     const MsgEl = document.getElementById("shopping-list")
     const free = document.getElementById("free")
-    onValue(freeDB, function(snapshot) {
+    onValue(ref(database, "Coupon"), function(snapshot) {
       if (snapshot.exists()) {
           let itemsArray = Object.entries(snapshot.val())
       
