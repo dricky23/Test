@@ -80,7 +80,7 @@ createUserWithEmailAndPassword(auth, email, password,)
     const uid = user.uid;
     var topB = document.getElementById("sign-up-d");
     var midB = document.getElementById("sign-in-d");
-
+    var free = document.getElementById("free")
     // User is signed in, see docs for a list of available properties
     // https://firebase.google.com/docs/reference/js/auth.user
     midB.innerHTML = 
@@ -91,7 +91,6 @@ createUserWithEmailAndPassword(auth, email, password,)
     </ul>`;
     topB.innerHTML = `
     <input class="log-btn" type="submit" id="logout" name="logout" value="Sign-out">`;
-
     logout.addEventListener("click", (e)=> {
       signOut(auth).then(() => {
     
@@ -106,9 +105,29 @@ createUserWithEmailAndPassword(auth, email, password,)
             alert(errorMessage);
     });
     });
+
+    
     const inputFieldEl = document.getElementById("input-field")
     const addButtonEl = document.getElementById("add-button")
     const MsgEl = document.getElementById("shopping-list")
+    const free = document.getElementById("free")
+    onValue(free, function(snapshot) {
+      if (snapshot.exists()) {
+          let itemsArray = Object.entries(snapshot.val())
+      
+          free.innerHTML = ""
+          
+          for (let i = 0; i < itemsArray.length; i++) {
+              let currentItem = itemsArray[i]
+              let currentItemID = currentItem[0]
+              let currentItemValue = currentItem[1]
+              
+              appendItemToMsgEl(currentItem)
+          }    
+      } else {
+          free.innerHTML = "No items here... yet"
+      }
+    })
 
     addButtonEl.addEventListener("click", function() {
       let inputValue = inputFieldEl.value
