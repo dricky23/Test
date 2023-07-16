@@ -15,7 +15,7 @@
   const app = initializeApp(firebaseConfig);
   const database = getDatabase(app);
   const auth = getAuth();
-  const shoppingListInDB = ref(database, "shoppingList");
+  const MsgInDB = ref(database, "Msg");
 
 
 
@@ -93,43 +93,43 @@ createUserWithEmailAndPassword(auth, email, password,)
 
     const inputFieldEl = document.getElementById("input-field")
     const addButtonEl = document.getElementById("add-button")
-    const shoppingListEl = document.getElementById("shopping-list")
+    const MsgEl = document.getElementById("shopping-list")
 
     addButtonEl.addEventListener("click", function() {
       let inputValue = inputFieldEl.value
       
-      push(shoppingListInDB, inputValue)
+      push(MsgInDB, inputValue)
       
       clearInputFieldEl()
     })
     
-    onValue(shoppingListInDB, function(snapshot) {
+    onValue(MsgInDB, function(snapshot) {
       if (snapshot.exists()) {
           let itemsArray = Object.entries(snapshot.val())
       
-          clearShoppingListEl()
+          clearMsgEl()
           
           for (let i = 0; i < itemsArray.length; i++) {
               let currentItem = itemsArray[i]
               let currentItemID = currentItem[0]
               let currentItemValue = currentItem[1]
               
-              appendItemToShoppingListEl(currentItem)
+              appendItemToMsgEl(currentItem)
           }    
       } else {
-          shoppingListEl.innerHTML = "No items here... yet"
+          MsgEl.innerHTML = "No items here... yet"
       }
     })
     
-    function clearShoppingListEl() {
-      shoppingListEl.innerHTML = ""
+    function clearMsgEl() {
+      MsgEl.innerHTML = ""
     }
     
     function clearInputFieldEl() {
       inputFieldEl.value = ""
     }
     
-    function appendItemToShoppingListEl(item) {
+    function appendItemToMsgEl(item) {
       let itemID = item[0]
       let itemValue = item[1]
       
@@ -138,12 +138,12 @@ createUserWithEmailAndPassword(auth, email, password,)
       newEl.textContent = itemValue
       
       newEl.addEventListener("dblclick", function() {
-          let exactLocationOfItemInDB = ref(database, `shoppingList/${itemID}`)
+          let exactLocationOfItemInDB = ref(database, `Msg/${itemID}`)
           
           remove(exactLocationOfItemInDB)
       })
       
-      shoppingListEl.append(newEl)
+      MsgEl.append(newEl)
     };
     // ...
   } else {

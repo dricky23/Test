@@ -4,7 +4,7 @@ html, body {
     background: #a100f2;
     color: #dad4f9;
     user-select: none;
-    text-shadow: 0 0 5px black;
+    text-shadow: 0 0 2.5px black;
 
 }
 .container {
