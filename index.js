@@ -127,7 +127,7 @@ createUserWithEmailAndPassword(auth, email, password,)
                 appendItemToShoppingListEl(currentItem)
             }    
         } else {
-            shoppingListEl.innerHTML = "No items here... yet"
+            shoppingListEl.innerHTML = "Coupons will appear here randomly!"
         }
     })
 
