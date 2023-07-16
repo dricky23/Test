@@ -13,7 +13,6 @@ html, body {
     flex-direction: column;
     max-width: 320px;
     margin: 30px auto;
-    text-align: left;
 }
 
 input {
@@ -43,7 +42,6 @@ button:hover {
     background-color: #432000;
     cursor: pointer;
 }
-
 ul {
     list-style-type: none;
     padding: 0;
@@ -63,8 +61,13 @@ ul li {
 }
 
 ul li:hover {
-    background-color: #FFECC7;
+    background-color: #F9879E;
     cursor: pointer;
 }
 
-
+.container {
+    display: flex;
+    flex-direction: column;
+    max-width: 320px;
+    margin: 30px auto;
+}

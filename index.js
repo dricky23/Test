@@ -1,7 +1,7 @@
 // javascript
 
     import { initializeApp } from "https://www.gstatic.com/firebasejs/10.0.0/firebase-app.js";
-    import { getDatabase, set, ref, update, push } from "https://www.gstatic.com/firebasejs/10.0.0/firebase-database.js";
+    import { getDatabase, set, ref, update, push, onValue, remove } from "https://www.gstatic.com/firebasejs/10.0.0/firebase-database.js";
     import { getAuth, createUserWithEmailAndPassword, signInWithEmailAndPassword, onAuthStateChanged, signOut } from "https://www.gstatic.com/firebasejs/10.0.0/firebase-auth.js";
 
   const firebaseConfig = {
@@ -18,6 +18,9 @@
   const app = initializeApp(firebaseConfig);
   const database = getDatabase(app);
   const auth = getAuth();
+  const shoppingListInDB = ref(database, "shoppingList");
+
+  
  
 signUp.addEventListener("click", (e) => {
 
@@ -76,13 +79,75 @@ createUserWithEmailAndPassword(auth, email, password,)
  onAuthStateChanged(auth, (user) => {
   if (user) {
     const uid = user.uid;
+
+
     var addComment = document.getElementById("profile-toolbar")
     var lastComment = document.getElementById("comments")
-    addComment.innerHTML = `Welcome back  <input id="new-c" placeholder="new comment"><button id="post">Add new!</button>`;
+    addComment.innerHTML = `<div class="container">
+    <img src="assets/pup.png">
+    <input type="text" id="input-field" placeholder="Pizza">
+    <button id="add-button">Add to cart</button>
+    <ul id="shopping-list">
+    </ul>
+</div>`;
     lastComment.innerHTML = ref(database, "users/" + uid + "/" + comments);
     // User is signed in, see docs for a list of available properties
     // https://firebase.google.com/docs/reference/js/auth.user
     
+    const inputFieldEl = document.getElementById("input-field")
+    const addButtonEl = document.getElementById("add-button")
+    const shoppingListEl = document.getElementById("shopping-list")
+
+    addButtonEl.addEventListener("click", function() {
+        let inputValue = inputFieldEl.value
+        
+        push(shoppingListInDB, inputValue)
+        
+        clearInputFieldEl()
+    })
+
+    onValue(shoppingListInDB, function(snapshot) {
+        if (snapshot.exists()) {
+            let itemsArray = Object.entries(snapshot.val())
+        
+            clearShoppingListEl()
+            
+            for (let i = 0; i < itemsArray.length; i++) {
+                let currentItem = itemsArray[i]
+                let currentItemID = currentItem[0]
+                let currentItemValue = currentItem[1]
+                
+                appendItemToShoppingListEl(currentItem)
+            }    
+        } else {
+            shoppingListEl.innerHTML = "No items here... yet"
+        }
+    })
+
+    function clearShoppingListEl() {
+        shoppingListEl.innerHTML = ""
+    }
+
+    function clearInputFieldEl() {
+        inputFieldEl.value = ""
+    }
+
+    function appendItemToShoppingListEl(item) {
+        let itemID = item[0]
+        let itemValue = item[1]
+        
+        let newEl = document.createElement("li")
+        
+        newEl.textContent = itemValue
+        
+        newEl.addEventListener("dblclick", function() {
+            let exactLocationOfItemInDB = ref(database, `shoppingList/${itemID}`)
+            
+            remove(exactLocationOfItemInDB)
+        })
+        
+        shoppingListEl.append(newEl)
+    }
     // ...
   } else {
     // User is signed out
