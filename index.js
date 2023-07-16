@@ -110,41 +110,47 @@ createUserWithEmailAndPassword(auth, email, password,)
     const inputFieldEl = document.getElementById("input-field")
     const addButtonEl = document.getElementById("add-button")
     const MsgEl = document.getElementById("shopping-list")
-    const free = document.getElementById("free")
-    onValue(ref(database, "Coupon"), function(snapshot) {
-      if (snapshot.exists()) {
-          let itemsArray = Object.entries(snapshot.val())
-      
-          clearfreeEl()
-          
-          for (let i = 0; i < itemsArray.length; i++) {
-              let currentItem = itemsArray[i]
-              let currentItemID = currentItem[0]
-              let currentItemValue = currentItem[1]
-              
-              appendItemTofree(currentItem)
-          }    
-      } else {
-          free.innerHTML = "No items here... yet"
-      }
+    const freeDB = ref(database, "Coupon")
+    const shoppingListEl = document.getElementById("free")
+
+    onValue(freeDB, function(snapshot) {
+        if (snapshot.exists()) {
+            let itemsArray = Object.entries(snapshot.val())
+        
+            clearShoppingListEl()
+            
+            for (let i = 0; i < itemsArray.length; i++) {
+                let currentItem = itemsArray[i]
+                let currentItemID = currentItem[0]
+                let currentItemValue = currentItem[1]
+                
+                appendItemToShoppingListEl(currentItem)
+            }    
+        } else {
+            shoppingListEl.innerHTML = "No items here... yet"
+        }
     })
-    
-    function appendItemTofree(item) {
-      let itemID = item[0]
-      let itemValue = item[1]
-      
-      let freeEl = document.createElement("lip")
-      
-      freeEl.textContent = itemValue
-      
-      freeEl.addEventListener("dblclick", function() {
-          let exactLocationOfItemInDB = ref(database, `Coupon/${itemID}`)
-          
-          remove(exactLocationOfItemInDB)
-      })
-      
-      freeEl.append(freeEl)
-    };
+
+    function clearShoppingListEl() {
+        shoppingListEl.innerHTML = ""
+    }
+
+    function appendItemToShoppingListEl(item) {
+        let itemID = item[0]
+        let itemValue = item[1]
+        
+        let newEl = document.createElement("li")
+        
+        newEl.textContent = itemValue
+        
+        newEl.addEventListener("dblclick", function() {
+            let exactLocationOfItemInDB = ref(database, `Coupon/${itemID}`)
+            
+            remove(exactLocationOfItemInDB)
+        })
+        
+        shoppingListEl.append(newEl)
+    }
 
     addButtonEl.addEventListener("click", function() {
       let inputValue = inputFieldEl.value
@@ -176,10 +182,6 @@ createUserWithEmailAndPassword(auth, email, password,)
       MsgEl.innerHTML = ""
     }
     
-    function clearfreeEl() {
-      free.innerHTML = ""
-    }
-
     function clearInputFieldEl() {
       inputFieldEl.value = ""
     }
