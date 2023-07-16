@@ -1,5 +1,3 @@
-// javascript
-
     import { initializeApp } from "https://www.gstatic.com/firebasejs/10.0.0/firebase-app.js";
     import { getDatabase, set, ref, update, push, onValue, remove } from "https://www.gstatic.com/firebasejs/10.0.0/firebase-database.js";
     import { getAuth, createUserWithEmailAndPassword, signInWithEmailAndPassword, onAuthStateChanged, signOut } from "https://www.gstatic.com/firebasejs/10.0.0/firebase-auth.js";
@@ -14,16 +12,17 @@
     appId: "1:744407916779:web:b6c05ce38d87ea80e3deae"
   };
 
-  // Initialize Firebase
   const app = initializeApp(firebaseConfig);
   const database = getDatabase(app);
   const auth = getAuth();
   const shoppingListInDB = ref(database, "shoppingList");
 
-  
- 
-signUp.addEventListener("click", (e) => {
+const signUpD = document.getElementById("sign-up-d")
+const signinD = document.getElementById("sign-in-d")
+const signoutD = document.getElementById("sign-out-d")
 
+///Sig-up///
+  signUp.addEventListener("click", (e) => {
   let email = document.getElementById('email').value;
   let password = document.getElementById('password').value;
   let username = document.getElementById('username').value;  
@@ -49,6 +48,7 @@ createUserWithEmailAndPassword(auth, email, password,)
   });
  });
 
+///login-button//
  login.addEventListener("click",(e)=> {
   let email = document.getElementById('email2').value;
   let password = document.getElementById('password2').value;
@@ -75,15 +75,17 @@ createUserWithEmailAndPassword(auth, email, password,)
 
  })
 
+////while signed in////
  const user = auth.currentUser;
  onAuthStateChanged(auth, (user) => {
   if (user) {
     const uid = user.uid;
-
-
     var addComment = document.getElementById("profile-toolbar");
     var lastComment = document.getElementById("comments");
-    
+    signUpD.style.display = "none";
+    signinD.style.display = "none";
+    signoutD.style.display = "block";
+
     // User is signed in, see docs for a list of available properties
     // https://firebase.google.com/docs/reference/js/auth.user
     addComment.innerHTML = `<div class="container">
@@ -154,8 +156,12 @@ createUserWithEmailAndPassword(auth, email, password,)
   }
 });
 
+///logout-button////
 logout.addEventListener("click", (e)=> {
   signOut(auth).then(() => {
+    signUpD.style.display = "block";
+    signinD.style.display = "block";
+    signoutD.style.display = "none";
   // Sign-out successful.
   alert("BYEEEEE");
 }).catch((error) => {
