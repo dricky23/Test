@@ -84,13 +84,13 @@ createUserWithEmailAndPassword(auth, email, password,)
     // User is signed in, see docs for a list of available properties
     // https://firebase.google.com/docs/reference/js/auth.user
     midB.innerHTML = 
-    `<input type="text" id="input-field" placeholder="Pizza">
-    <button id="add-button">Add to cart</button>
+    `<img src="/assets/doja.gif">
+    <input type="text" id="input-field" placeholder="Say something here!">
+    <button id="add-button">Add Message</button>
     <ul id="shopping-list">
     </ul>`;
     topB.innerHTML = `
-    <input class="log-btn" type="submit" id="logout" name="logout" value="Sign-out">
-    <button class="log-btn" onclick="logoff()">Sign out 2</button>`;
+    <input class="log-btn" type="submit" id="logout" name="logout" value="Sign-out">`;
 
     logout.addEventListener("click", (e)=> {
       signOut(auth).then(() => {
