@@ -25,10 +25,16 @@ html, body {
 #sign-out-d {
     margin-top: 0px;
 }
-h1 h3 {
+h1 {
     margin: 15px;
     text-align: center;
     text-shadow: 0 0 2.5px black;
+}
+h3 {
+    margin: 10px;
+    text-align: center;
+    text-shadow: 0 0 2.5px black;
+    font-weight: bolder;
 }
 .log-btn {
     background-color: #05cc6f ;
