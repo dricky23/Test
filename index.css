@@ -10,7 +10,7 @@ html, body {
     flex-direction: column;
     max-width: 300px;
     margin: 10px auto;
-    background: #05cea6;
+    background: radial-gradient(#6cffdf, #05cea6);
     border-radius: 15px;
     padding: 0px 20px;
     border: 2px solid black;
@@ -30,7 +30,7 @@ h1 {
     text-align: center;
     text-shadow: 0 0 2.5px black;
 }
-h3 {
+h2 {
     margin: 10px;
     text-align: center;
     text-shadow: 0 0 2.5px black;
@@ -111,5 +111,5 @@ ul li:hover {
 }
 
 #spc {
-    background: radial-gradient(#6cffdf, #05cea6)
+    background: radial-gradient(#6cffdf, #05cea6);
 }
