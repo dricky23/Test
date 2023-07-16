@@ -4,6 +4,7 @@ html, body {
     background: #a100f2;
     color: #dad4f9;
     user-select: none;
+    text-shadow: 0 0 5px black;
 
 }
 .container {
@@ -90,4 +91,7 @@ ul li {
 ul li:hover {
     background-color: #F9879E;
     cursor: pointer;
+}
+#input-field {
+    margin-bottom: 8px;
 }
