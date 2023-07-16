@@ -101,7 +101,9 @@ ul li:hover {
     outline-offset: 15px;
     background-image: url(header.jpg);
     background-repeat: no-repeat;
-    background-size: cover;
-    
-    
+    background-size: cover;    
+}
+
+#spc {
+    background: radial-gradient(#6cffdf, #05cea6)
 }

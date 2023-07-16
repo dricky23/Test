@@ -110,7 +110,7 @@ createUserWithEmailAndPassword(auth, email, password,)
     const inputFieldEl = document.getElementById("input-field")
     const addButtonEl = document.getElementById("add-button")
     const MsgEl = document.getElementById("shopping-list")
-    
+    const freeEx = document.getElementById("free-h")
     const shoppingListEl = document.getElementById("free-c")
 
     onValue(ref(database, "Coupon"), function(snapshot) {
@@ -123,7 +123,7 @@ createUserWithEmailAndPassword(auth, email, password,)
                 let currentItem = itemsArray[i]
                 let currentItemID = currentItem[0]
                 let currentItemValue = currentItem[1]
-                
+                freeEx.innerText = "Coupons will randomly come in, double click to use!"
                 appendItemToShoppingListEl(currentItem)
             }    
         } else {
