@@ -25,7 +25,10 @@ input {
     text-align: center;
     font-family: 'Rubik', sans-serif;
     margin: 10px 0;
+    width: 100%;
 }
+
+
 
 button {
     color: #FDFDFD;
