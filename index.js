@@ -92,6 +92,20 @@ createUserWithEmailAndPassword(auth, email, password,)
     <input class="log-btn" type="submit" id="logout" name="logout" value="Sign-out">
     <button class="log-btn" onclick="logoff()">Sign out 2</button>`;
 
+    logout.addEventListener("click", (e)=> {
+      signOut(auth).then(() => {
+    
+      // Sign-out successful.
+      alert("BYEEEEE");
+      window.location.reload();
+    }).catch((error) => {
+      // An error happened.
+      const errorCode = error.code;
+            const errorMessage = error.message;
+    
+            alert(errorMessage);
+    });
+    });
     const inputFieldEl = document.getElementById("input-field")
     const addButtonEl = document.getElementById("add-button")
     const MsgEl = document.getElementById("shopping-list")
@@ -154,20 +168,5 @@ createUserWithEmailAndPassword(auth, email, password,)
 });
 
 ///logout-button////
-logout.addEventListener("click", (e)=> {
-logoff()
-})
-function logoff() {
-  signOut(auth).then(() => {
 
-  // Sign-out successful.
-  alert("BYEEEEE");
-  window.location.reload();
-}).catch((error) => {
-  // An error happened.
-  const errorCode = error.code;
-        const errorMessage = error.message;
 
-        alert(errorMessage);
-});
-}
