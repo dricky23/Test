@@ -32,7 +32,7 @@ createUserWithEmailAndPassword(auth, email, password,)
     set(ref(database, "users/" + user.uid),{
       username: username,
       email: email,
-      comments: []
+      comments: "This is the where your messages will appear"
     })
     alert("user created!");
     // ...
@@ -76,8 +76,9 @@ createUserWithEmailAndPassword(auth, email, password,)
  onAuthStateChanged(auth, (user) => {
   if (user) {
     var addComment = document.getElementById("profile-toolbar")
-    addComment.innerHTML = `Welcome back ${user.value} <input id="new-c" placeholder="new comment"><button id="post" onclick="newComment">Add new!</button>`;
-
+    var lastComment = document.getElementById("comments")
+    addComment.innerHTML = `Welcome back  <input id="new-c" placeholder="new comment"><button id="post">Add new!</button>`;
+    lastComment.innerHTML = ref(database, "users/" + user.uid + "/" + comments);
     // User is signed in, see docs for a list of available properties
     // https://firebase.google.com/docs/reference/js/auth.user
     const uid = user.uid;
@@ -91,6 +92,11 @@ createUserWithEmailAndPassword(auth, email, password,)
 logout.addEventListener("click", (e)=> {
   signOut(auth).then(() => {
   // Sign-out successful.
+  const newComment = document.getElementById("post").value
+  update(ref(database, "users/" + user.uid),{
+    comments: newComment
+    
+  })
   alert("BYEEEEE");
 }).catch((error) => {
   // An error happened.
