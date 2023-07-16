@@ -5,6 +5,8 @@ html, body {
     color: #dad4f9;
     user-select: none;
     text-shadow: 0 0 2.5px black;
+    border: 2px solid black;
+
 }
 .container {
     display: flex;
@@ -14,7 +16,6 @@ html, body {
     background: #3105CE;
     border-radius: 15px;
     padding: 0px 20px;
-    border: 2px solid black;
 }
 #sign-up-d {
     margin-bottom: 0px;

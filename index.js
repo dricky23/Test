@@ -83,15 +83,14 @@ createUserWithEmailAndPassword(auth, email, password,)
 
     // User is signed in, see docs for a list of available properties
     // https://firebase.google.com/docs/reference/js/auth.user
-    midB.innerHTML = `<div class="container">
-    <input type="text" id="input-field" placeholder="Pizza">
+    midB.innerHTML = 
+    `<input type="text" id="input-field" placeholder="Pizza">
     <button id="add-button">Add to cart</button>
     <ul id="shopping-list">
-    </ul>
-    </div>`;
-    topB.innerHTML = `<div class="container" id="sign-out-d">
-    <input class="log-btn" type="submit" id="logout" name="logout" value="Sign-out"> 
-    </div>`;
+    </ul>`;
+    topB.innerHTML = `
+    <input class="log-btn" type="submit" id="logout" name="logout" value="Sign-out">
+    <button class="log-btn" onclick="logoff()">Sign out 2</button>`;
 
     const inputFieldEl = document.getElementById("input-field")
     const addButtonEl = document.getElementById("add-button")
@@ -170,3 +169,17 @@ logout.addEventListener("click", (e)=> {
 });
 });
 
+function logoff() {
+  signOut(auth).then(() => {
+
+  // Sign-out successful.
+  alert("BYEEEEE");
+  window.location.reload();
+}).catch((error) => {
+  // An error happened.
+  const errorCode = error.code;
+        const errorMessage = error.message;
+
+        alert(errorMessage);
+});
+}
