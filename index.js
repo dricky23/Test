@@ -81,15 +81,8 @@ createUserWithEmailAndPassword(auth, email, password,)
     const uid = user.uid;
 
 
-    var addComment = document.getElementById("profile-toolbar")
-    var lastComment = document.getElementById("comments")
-    addComment.innerHTML = `<div class="container">
-    <img src="assets/pup.png">
-    <input type="text" id="input-field" placeholder="Pizza">
-    <button id="add-button">Add to cart</button>
-    <ul id="shopping-list">
-    </ul>
-</div>`;
+    var addComment = document.getElementById("profile-toolbar");
+    var lastComment = document.getElementById("comments");
     lastComment.innerHTML = ref(database, "users/" + uid + "/" + comments);
     // User is signed in, see docs for a list of available properties
     // https://firebase.google.com/docs/reference/js/auth.user
@@ -148,6 +141,12 @@ createUserWithEmailAndPassword(auth, email, password,)
         
         shoppingListEl.append(newEl)
     }
+    addComment.innerHTML = `<div class="container">
+    <input type="text" id="input-field" placeholder="Pizza">
+    <button id="add-button">Add to cart</button>
+    <ul id="shopping-list">
+    </ul>
+</div>`;
     // ...
   } else {
     // User is signed out
