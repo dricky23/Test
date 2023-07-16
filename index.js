@@ -155,20 +155,8 @@ createUserWithEmailAndPassword(auth, email, password,)
 
 ///logout-button////
 logout.addEventListener("click", (e)=> {
-  signOut(auth).then(() => {
-
-  // Sign-out successful.
-  alert("BYEEEEE");
-  window.location.reload();
-}).catch((error) => {
-  // An error happened.
-  const errorCode = error.code;
-        const errorMessage = error.message;
-
-        alert(errorMessage);
-});
-});
-
+logoff()
+})
 function logoff() {
   signOut(auth).then(() => {
 
