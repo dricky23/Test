@@ -1,30 +1,43 @@
 html, body {
     margin: 0;
     padding: 0;
-    text-align: center;
     background: #a100f2;
     color: #dad4f9;
     user-select: none;
 
 }
+.container {
+    display: flex;
+    flex-direction: column;
+    max-width: 320px;
+    margin: 10px auto;
+    background: #6a00f4;
+    border-radius: 15px;
+    padding: 0px 20px;
+}
+
+#sign-up-d {
+    margin-bottom: 0px;
+}
+#sign-in-d {
+    margin: 10px auto;
+}
+#sign-out-d {
+    margin-top: 0px;
+}
 
 h1 {
     margin: 15px;
+    text-align: center;
 }
 
 .log-btn {
     background-color: #a100f2 ;
     color: #dad4f9;
+    margin-top: 6.5px;
+    margin-bottom: 6.5px;
     
-}
-
-#login-box {
-    display: flex;
-    flex-direction: column;
-    max-width: 320px;
-    margin: 20px auto;
-    background: #6a00f4;
-    border-radius: 15px;
+    
 }
 
 input {
@@ -37,8 +50,8 @@ input {
     font-size: 20px;
     text-align: center;
     font-family: 'Rubik', sans-serif;
-    margin: 8px 0;
-    width: 80%;
+    margin: 1px 0;
+    
 }
 
 button {
@@ -77,11 +90,4 @@ ul li {
 ul li:hover {
     background-color: #F9879E;
     cursor: pointer;
-}
-
-.container {
-    display: flex;
-    flex-direction: column;
-    max-width: 320px;
-    text-align: center;
 }
