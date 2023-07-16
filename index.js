@@ -16,7 +16,7 @@
   const database = getDatabase(app);
   const auth = getAuth();
   const MsgInDB = ref(database, "Msg");
-
+  const freeDB = ref(database, "Coupon");
 
 
 ///Sig-up///
@@ -80,7 +80,7 @@ createUserWithEmailAndPassword(auth, email, password,)
     const uid = user.uid;
     var topB = document.getElementById("sign-up-d");
     var midB = document.getElementById("sign-in-d");
-    const freeDB = ref(database, "Coupon");
+    
     // User is signed in, see docs for a list of available properties
     // https://firebase.google.com/docs/reference/js/auth.user
     midB.innerHTML = 
@@ -115,7 +115,7 @@ createUserWithEmailAndPassword(auth, email, password,)
       if (snapshot.exists()) {
           let itemsArray = Object.entries(snapshot.val())
       
-          free.innerHTML = ""
+          clearfreeEl()
           
           for (let i = 0; i < itemsArray.length; i++) {
               let currentItem = itemsArray[i]
@@ -176,6 +176,10 @@ createUserWithEmailAndPassword(auth, email, password,)
       MsgEl.innerHTML = ""
     }
     
+    function clearfreeEl() {
+      free.innerHTML = ""
+    }
+
     function clearInputFieldEl() {
       inputFieldEl.value = ""
     }
