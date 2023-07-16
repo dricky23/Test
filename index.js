@@ -122,12 +122,29 @@ createUserWithEmailAndPassword(auth, email, password,)
               let currentItemID = currentItem[0]
               let currentItemValue = currentItem[1]
               
-              appendItemToMsgEl(currentItem)
+              appendItemTofree(currentItem)
           }    
       } else {
           free.innerHTML = "No items here... yet"
       }
     })
+    
+    function appendItemTofree(item) {
+      let itemID = item[0]
+      let itemValue = item[1]
+      
+      let freeEl = document.createElement("li")
+      
+      freeEl.textContent = itemValue
+      
+      freeEl.addEventListener("dblclick", function() {
+          let exactLocationOfItemInDB = ref(database, `Coupon/${itemID}`)
+          
+          remove(exactLocationOfItemInDB)
+      })
+      
+      freeEl.append(freeEl)
+    };
 
     addButtonEl.addEventListener("click", function() {
       let inputValue = inputFieldEl.value
