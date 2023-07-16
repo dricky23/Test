@@ -133,7 +133,7 @@ createUserWithEmailAndPassword(auth, email, password,)
       let itemID = item[0]
       let itemValue = item[1]
       
-      let freeEl = document.createElement("li")
+      let freeEl = document.createElement("lip")
       
       freeEl.textContent = itemValue
       
