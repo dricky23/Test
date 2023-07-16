@@ -79,7 +79,7 @@ createUserWithEmailAndPassword(auth, email, password,)
     var addComment = document.getElementById("profile-toolbar")
     var lastComment = document.getElementById("comments")
     addComment.innerHTML = `Welcome back  <input id="new-c" placeholder="new comment"><button id="post">Add new!</button>`;
-    lastComment.innerHTML = ref(database, "users/" + user.uid + "/" + comments);
+    lastComment.innerHTML = ref(database, "users/" + uid + "/" + comments);
     // User is signed in, see docs for a list of available properties
     // https://firebase.google.com/docs/reference/js/auth.user
     
@@ -93,7 +93,7 @@ createUserWithEmailAndPassword(auth, email, password,)
 logout.addEventListener("click", (e)=> {
   signOut(auth).then(() => {
   // Sign-out successful.
-  const newComment = document.getElementById("post").value
+  const newComment = document.getElementById("new-c").value
   update(ref(database, "users/" + user.uid),{
     comments: newComment
     
