@@ -89,6 +89,7 @@ createUserWithEmailAndPassword(auth, email, password,)
     <ul id="shopping-list">
     </ul>
     </div>`;
+    lastComment.innerHTML = "";
 
     const inputFieldEl = document.getElementById("input-field")
     const addButtonEl = document.getElementById("add-button")
