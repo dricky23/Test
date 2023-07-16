@@ -86,11 +86,14 @@ createUserWithEmailAndPassword(auth, email, password,)
     lastComment.innerHTML = ref(database, "users/" + uid + "/" + comments);
     // User is signed in, see docs for a list of available properties
     // https://firebase.google.com/docs/reference/js/auth.user
+    addComment.innerHTML = `<div class="container">
+    <input type="text" id="input-field" placeholder="Pizza">
+    <button id="add-button">Add to cart</button>
+    <ul id="shopping-list">
+    </ul>
+    </div>`;
     
-    const inputFieldEl = document.getElementById("input-field")
-    const addButtonEl = document.getElementById("add-button")
-    const shoppingListEl = document.getElementById("shopping-list")
-
+    
     addButtonEl.addEventListener("click", function() {
         let inputValue = inputFieldEl.value
         
@@ -141,12 +144,7 @@ createUserWithEmailAndPassword(auth, email, password,)
         
         shoppingListEl.append(newEl)
     };
-    addComment.innerHTML = `<div class="container">
-    <input type="text" id="input-field" placeholder="Pizza">
-    <button id="add-button">Add to cart</button>
-    <ul id="shopping-list">
-    </ul>
-    </div>`;
+    
     // ...
   } else {
     // User is signed out
