@@ -97,7 +97,8 @@ ul li:hover {
     margin: 10px auto;
     border-radius: 10px;
     box-shadow: 0px 1px 4px rgba(0, 0, 0, 0.2);
-    border: 15px dotted #f2ffb8;
+    outline: 5px dotted rgb(255, 232, 55);
+    outline-offset: 5px;
     background-image: url(header.jpg);
     background-repeat: no-repeat;
     background-size: cover;
